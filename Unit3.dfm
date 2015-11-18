@@ -1,0 +1,36 @@
+object Form3: TForm3
+  Left = 0
+  Top = 0
+  AlphaBlend = True
+  BorderStyle = bsToolWindow
+  Caption = #1048#1089#1090#1086#1088#1080#1103
+  ClientHeight = 198
+  ClientWidth = 164
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 13
+  object ListBox1: TListBox
+    Left = 0
+    Top = 0
+    Width = 164
+    Height = 198
+    Align = alClient
+    Color = cl3DLight
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ItemHeight = 13
+    ParentFont = False
+    TabOrder = 0
+  end
+end
