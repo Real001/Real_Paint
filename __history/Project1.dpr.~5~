@@ -1,0 +1,46 @@
+program Project1;
+
+uses
+  Vcl.Forms,
+  MainUnit in 'MainUnit.pas' {MainForm},
+  NewImageUnit in 'NewImageUnit.pas' {Form2},
+  HistoryUnit in 'HistoryUnit.pas' {HistoryForm},
+  FullScreenUnit in 'FullScreenUnit.pas' {FullScreenForm},
+  Vcl.Themes,
+  Vcl.Styles,
+  FrostUnit in 'FrostUnit.pas' {FrostForm},
+  PixelUnit in 'PixelUnit.pas' {PixelForm},
+  ContrastUnit in 'ContrastUnit.pas' {ContrastForm},
+  IntensityColorUnit in 'IntensityColorUnit.pas' {IntensityColorForm},
+  Unit9 in 'Unit9.pas' {Form9},
+  GradientUnit in 'GradientUnit.pas' {GradientForm},
+  SplashScreenUnit in 'SplashScreenUnit.pas' {SplashScreenForm},
+  AboutUnit in 'AboutUnit.pas' {AboutForm},
+  ColorShadeUnit in 'ColorShadeUnit.pas' {ColorShadeForm},
+  GausUnit in 'GausUnit.pas' {GausForm};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TSplashScreenForm, SplashScreenForm);
+  Application.CreateForm(TAboutForm, AboutForm);
+  Application.CreateForm(TColorShadeForm, ColorShadeForm);
+  Application.CreateForm(TGausForm, GausForm);
+  SplashScreenForm.Show;
+  while SplashScreenForm.Timer.Enabled do
+    Application.ProcessMessages;
+  SplashScreenForm.Free;
+  Application.CreateForm(TMainForm, MainForm);
+  Application.CreateForm(THistoryForm, HistoryForm);
+  Application.CreateForm(TFullScreenForm, FullScreenForm);
+  Application.CreateForm(TFrostForm, FrostForm);
+  Application.CreateForm(TPixelForm, PixelForm);
+  Application.CreateForm(TContrastForm, ContrastForm);
+  Application.CreateForm(TIntensityColorForm, IntensityColorForm);
+  Application.CreateForm(TForm9, Form9);
+  Application.CreateForm(TGradientForm, GradientForm);
+  Application.CreateForm(TNewImageForm, NewImageForm);
+  Application.Run;
+end.
