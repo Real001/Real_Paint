@@ -36,7 +36,7 @@ implementation
 
 {$R *.dfm}
 
-Uses MainUnit, Unit3;
+Uses MainUnit, HistoryUnit;
 
 procedure TNewImageForm.Button1Click(Sender: TObject); //создание изображения
 begin
@@ -54,7 +54,7 @@ begin
     img.Canvas.FillRect(Rect(0,0,MainForm.PaintBox.Width,MainForm.PaintBox.Height));
     buffer.Canvas.FillRect(Rect(0,0,MainForm.PaintBox.Width,MainForm.PaintBox.Height));
     MainForm.PaintBox.Canvas.FillRect(Rect(0,0,MainForm.PaintBox.Width,MainForm.PaintBox.Height));
-    Form3.ListBox1.Clear;
+    HistoryForm.ListBox1.Clear;
     MainForm.Caption:='Новое изображение - Real Paint v3.0';
     MainForm.Log('Новое изображение');
   end else

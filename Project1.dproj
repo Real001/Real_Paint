@@ -116,48 +116,48 @@
             <Form>Form2</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Unit3.pas">
-            <Form>Form3</Form>
+        <DCCReference Include="HistoryUnit.pas">
+            <Form>HistoryForm</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Unit4.pas">
-            <Form>Form4</Form>
+        <DCCReference Include="FullScreenUnit.pas">
+            <Form>FullScreenForm</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Unit5.pas">
-            <Form>Form5</Form>
+        <DCCReference Include="FrostUnit.pas">
+            <Form>FrostForm</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Unit6.pas">
-            <Form>Form6</Form>
+        <DCCReference Include="PixelUnit.pas">
+            <Form>PixelForm</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Unit7.pas">
-            <Form>Form7</Form>
+        <DCCReference Include="ContrastUnit.pas">
+            <Form>ContrastForm</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Unit8.pas">
-            <Form>Form8</Form>
+        <DCCReference Include="IntensityColorUnit.pas">
+            <Form>IntensityColorForm</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Unit9.pas">
-            <Form>Form9</Form>
+        <DCCReference Include="AddNoiseUnit.pas">
+            <Form>AddNoiseForm</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Unit10.pas">
-            <Form>Form10</Form>
+        <DCCReference Include="GradientUnit.pas">
+            <Form>GradientForm</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Unit11.pas">
-            <Form>Form11</Form>
+        <DCCReference Include="SplashScreenUnit.pas">
+            <Form>SplashScreenForm</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Unit12.pas">
-            <Form>Form12</Form>
+        <DCCReference Include="AboutUnit.pas">
+            <Form>AboutForm</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Unit13.pas">
-            <Form>Form13</Form>
+        <DCCReference Include="ColorShadeUnit.pas">
+            <Form>ColorShadeForm</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="GausUnit.pas">
@@ -198,27 +198,12 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployClass Name="DependencyModule">
-                    <Platform Name="Win32">
-                        <Operation>0</Operation>
-                        <Extensions>.dll;.bpl</Extensions>
-                    </Platform>
+                <DeployClass Name="ProjectiOSDeviceResourceRules">
                     <Platform Name="iOSDevice64">
                         <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
-                    </Platform>
-                    <Platform Name="OSX32">
-                        <RemoteDir>Contents\MacOS</RemoteDir>
-                        <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
                     </Platform>
                     <Platform Name="iOSDevice32">
                         <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
-                    </Platform>
-                    <Platform Name="iOSSimulator">
-                        <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
                     </Platform>
                 </DeployClass>
                 <DeployClass Name="ProjectOSXResource">
@@ -572,12 +557,27 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-                <DeployClass Name="ProjectiOSDeviceResourceRules">
+                <DeployClass Name="DependencyModule">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                        <Extensions>.dll;.bpl</Extensions>
+                    </Platform>
                     <Platform Name="iOSDevice64">
                         <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
                     </Platform>
                     <Platform Name="iOSDevice32">
                         <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
                     </Platform>
                 </DeployClass>
                 <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>

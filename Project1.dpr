@@ -4,19 +4,19 @@ uses
   Vcl.Forms,
   MainUnit in 'MainUnit.pas' {MainForm},
   NewImageUnit in 'NewImageUnit.pas' {Form2},
-  Unit3 in 'Unit3.pas' {Form3},
-  Unit4 in 'Unit4.pas' {Form4},
+  HistoryUnit in 'HistoryUnit.pas' {HistoryForm},
+  FullScreenUnit in 'FullScreenUnit.pas' {FullScreenForm},
   Vcl.Themes,
   Vcl.Styles,
-  Unit5 in 'Unit5.pas' {Form5},
-  Unit6 in 'Unit6.pas' {Form6},
-  Unit7 in 'Unit7.pas' {Form7},
-  Unit8 in 'Unit8.pas' {Form8},
-  Unit9 in 'Unit9.pas' {Form9},
-  Unit10 in 'Unit10.pas' {Form10},
-  Unit11 in 'Unit11.pas' {Form11},
-  Unit12 in 'Unit12.pas' {Form12},
-  Unit13 in 'Unit13.pas' {Form13},
+  FrostUnit in 'FrostUnit.pas' {FrostForm},
+  PixelUnit in 'PixelUnit.pas' {PixelForm},
+  ContrastUnit in 'ContrastUnit.pas' {ContrastForm},
+  IntensityColorUnit in 'IntensityColorUnit.pas' {IntensityColorForm},
+  AddNoiseUnit in 'AddNoiseUnit.pas' {AddNoiseForm},
+  GradientUnit in 'GradientUnit.pas' {GradientForm},
+  SplashScreenUnit in 'SplashScreenUnit.pas' {SplashScreenForm},
+  AboutUnit in 'AboutUnit.pas' {AboutForm},
+  ColorShadeUnit in 'ColorShadeUnit.pas' {ColorShadeForm},
   GausUnit in 'GausUnit.pas' {GausForm};
 
 {$R *.res}
@@ -24,23 +24,23 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TForm11, Form11);
-  Application.CreateForm(TForm12, Form12);
-  Application.CreateForm(TForm13, Form13);
+  Application.CreateForm(TSplashScreenForm, SplashScreenForm);
+  Application.CreateForm(TAboutForm, AboutForm);
+  Application.CreateForm(TColorShadeForm, ColorShadeForm);
   Application.CreateForm(TGausForm, GausForm);
-  Form11.Show;
-  while Form11.Timer.Enabled do
+  SplashScreenForm.Show;
+  while SplashScreenForm.Timer.Enabled do
     Application.ProcessMessages;
-  Form11.Free;
+  SplashScreenForm.Free;
   Application.CreateForm(TMainForm, MainForm);
-  Application.CreateForm(TForm3, Form3);
-  Application.CreateForm(TForm4, Form4);
-  Application.CreateForm(TForm5, Form5);
-  Application.CreateForm(TForm6, Form6);
-  Application.CreateForm(TForm7, Form7);
-  Application.CreateForm(TForm8, Form8);
-  Application.CreateForm(TForm9, Form9);
-  Application.CreateForm(TForm10, Form10);
+  Application.CreateForm(THistoryForm, HistoryForm);
+  Application.CreateForm(TFullScreenForm, FullScreenForm);
+  Application.CreateForm(TFrostForm, FrostForm);
+  Application.CreateForm(TPixelForm, PixelForm);
+  Application.CreateForm(TContrastForm, ContrastForm);
+  Application.CreateForm(TIntensityColorForm, IntensityColorForm);
+  Application.CreateForm(TAddNoiseForm, AddNoiseForm);
+  Application.CreateForm(TGradientForm, GradientForm);
   Application.CreateForm(TNewImageForm, NewImageForm);
   Application.Run;
 end.

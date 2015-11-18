@@ -162,12 +162,12 @@ implementation
 {$R *.dfm}
 
 Uses
-  NewImageUnit, Unit3, Unit4, Unit5, Unit6, Unit7, Unit8, Unit9, Unit10, Unit12,
-  Unit13, GausUnit;
+  NewImageUnit, HistoryUnit, FullScreenUnit, FrostUnit, PixelUnit, ContrastUnit,
+  IntensityColorUnit, AddNoiseUnit, GradientUnit, AboutUnit, ColorShadeUnit, GausUnit;
 
 procedure TMainForm.Log(Text: string);
 begin
-  Form3.ListBox1.Items.Add(Text);
+  HistoryForm.ListBox1.Items.Add(Text);
 end;
 
 procedure Wave(Bitmap: TBitmap; Frequency, Length: integer; //волны
@@ -393,15 +393,15 @@ end;
 
 procedure TMainForm.ConsolPixelClick(Sender: TObject);
 begin
-  Form6.TrackBar.Position:=1;
-  Form6.ShowModal;
+  PixelForm.TrackBar.Position:=1;
+  PixelForm.ShowModal;
 end;
 
 procedure TMainForm.ContrastClick(Sender: TObject);
 begin
-  Form7.TrackBarContrast.Position:=0;
-  Form7.TrackBarBright.Position:=0;
-  Form7.ShowModal;
+  ContrastForm.TrackBarContrast.Position:=0;
+  ContrastForm.TrackBarBright.Position:=0;
+  ContrastForm.ShowModal;
 end;
 
 procedure TMainForm.CopyClick(Sender: TObject);
@@ -781,9 +781,9 @@ end;
 
 procedure TMainForm.IntColorClick(Sender: TObject);
 begin
-  Form8.Image1.Picture.Bitmap:=buffer;
-  Form8.Image2.Picture.Bitmap:=buffer;
-  Form8.ShowModal();
+  IntensityColorForm.Image1.Picture.Bitmap:=buffer;
+  IntensityColorForm.Image2.Picture.Bitmap:=buffer;
+  IntensityColorForm.ShowModal();
 end;
 
 procedure TMainForm.JulFractalClick(Sender: TObject);
@@ -819,7 +819,7 @@ end;
 
 procedure TMainForm.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
 begin
-  if Form3.ListBox1.Items.Count<>0 then 
+  if HistoryForm.ListBox1.Items.Count<>0 then
   begin
     case MessageDlg('Сохранить изображения?',mtWarning,mbYesNoCancel,0) of
       mrYes:begin
@@ -854,34 +854,34 @@ end;
 
 procedure TMainForm.FrostClick(Sender: TObject);
 begin
-  Form5.TrackBarH.Position:=0;
-  Form5.TrackBarV.Position:=0;
+  FrostForm.TrackBarH.Position:=0;
+  FrostForm.TrackBarV.Position:=0;
   ReturnSaveImage;
-  Form5.ShowModal;
+  FrostForm.ShowModal;
 end;
 
 procedure TMainForm.N49Click(Sender: TObject);
 begin
-  Form9.TrackBar.Position:=0;
-  Form9.ShowModal;
+  AddNoiseForm.TrackBar.Position:=0;
+  AddNoiseForm.ShowModal;
 end;
 
 procedure TMainForm.N6Click(Sender: TObject);
 begin
-  Form12.ShowModal;
+  AboutForm.ShowModal;
 end;
 
 procedure TMainForm.N7Click(Sender: TObject);
 begin
-  Form10.ShowModal();
+  GradientForm.ShowModal();
 end;
 
 procedure TMainForm.N8Click(Sender: TObject);
 begin
-  Form13.TrackBarR.Position:=0;
-  Form13.TrackBarG.Position:=0;
-  Form13.TrackBarB.Position:=0;
-  Form13.ShowModal;
+  ColorShadeForm.TrackBarR.Position:=0;
+  ColorShadeForm.TrackBarG.Position:=0;
+  ColorShadeForm.TrackBarB.Position:=0;
+  ColorShadeForm.ShowModal;
 end;
 
 procedure TMainForm.N9Click(Sender: TObject);
@@ -981,22 +981,22 @@ begin
   if History.Checked=true then
   begin
     str:=TFileStream.Create('history.dat',fmCreate);//открывем файл для записи
-    str.WriteComponent(Form3.ListBox1);
-    Form3.Close;
+    str.WriteComponent(HistoryForm.ListBox1);
+    HistoryForm.Close;
     str.Free;
     History.Checked:=false;
   end else
   begin
     if FileExists('history.dat') then
     begin
-      Form3.Show;
+      HistoryForm.Show;
       str:=TFileStream.Create('history.dat',fmOpenRead);
-      str.ReadComponent(Form3.ListBox1);
+      str.ReadComponent(HistoryForm.ListBox1);
       str.Free;
       History.Checked:=true;
     end else
     begin
-      Form3.Show;
+      HistoryForm.Show;
       History.Checked:=true;
     end;
   end;
@@ -1004,26 +1004,29 @@ end;
 
 procedure TMainForm.FullScreenClick(Sender: TObject); //изображение на весь экран
 begin
-  Form4.Show;
-  Form4.FormStyle:=fsStayOnTop;
-  Form4.Width:=Screen.Width; //размеры экрана
-  Form4.Height :=Screen.Height;
-  Form4.Image1.Picture.Bitmap:=img;
-  Form4.Image1.Height:=img.Height;//размеры изображения
-  Form4.Image1.Width:=img.Width;
+  FullScreenForm.Show;
+  FullScreenForm.FormStyle:=fsStayOnTop;
+  FullScreenForm.Width:=Screen.Width; //размеры экрана
+  FullScreenForm.Height :=Screen.Height;
+  FullScreenForm.Image1.Picture.Bitmap:=img;
+  FullScreenForm.Image1.Height:=img.Height;//размеры изображения
+  FullScreenForm.Image1.Width:=img.Width;
   if img.Height>Screen.Height then 
   begin
-    Form4.ScrollBox1.Height:=img.Height;
-    Form4.ScrollBox1.Width:=img.Width;
-    Form4.ScrollBox1.Left := (Form4.ClientWidth - Form4.ScrollBox1.Width)  div 2; //расположение по центру
-    Form4.ScrollBox1.Top := (Form4.ClientHeight - Form4.ScrollBox1.Height - (Form4.ScrollBox1.Height div 3)) div 2;
+    FullScreenForm.ScrollBox1.Height:=img.Height;
+    FullScreenForm.ScrollBox1.Width:=img.Width;
+    FullScreenForm.ScrollBox1.Left := (FullScreenForm.ClientWidth -
+    FullScreenForm.ScrollBox1.Width)  div 2; //расположение по центру
+    FullScreenForm.ScrollBox1.Top := (FullScreenForm.ClientHeight -
+    FullScreenForm.ScrollBox1.Height - (FullScreenForm.ScrollBox1.Height div 3)) div 2;
   end else 
   begin
-    Form4.ScrollBox1.Height:=Screen.Height;
-    Form4.ScrollBox1.Width:=Screen.Width;
+    FullScreenForm.ScrollBox1.Height:=Screen.Height;
+    FullScreenForm.ScrollBox1.Width:=Screen.Width;
   end;
-  Form4.Image1.Left := (Form4.ClientWidth - Form4.Image1.Width)  div 2; //расположение по центру
-  Form4.Image1.Top := (Form4.ClientHeight - Form4.Image1.Height - (Form4.Image1.Height div 3)) div 2;
+  FullScreenForm.Image1.Left := (FullScreenForm.ClientWidth - FullScreenForm.Image1.Width)  div 2; //расположение по центру
+  FullScreenForm.Image1.Top := (FullScreenForm.ClientHeight - FullScreenForm.Image1.Height
+  - (FullScreenForm.Image1.Height div 3)) div 2;
 end;
 
 procedure TMainForm.WavesClick(Sender: TObject);//вызов эффекта волн
